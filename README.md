@@ -1,2 +1,1 @@
-# kodland-zadanie-rekrutacyjne
-Created with CodeSandbox
+# Strona PopIt! - zadanie rekrutacyjne dla Kodland
