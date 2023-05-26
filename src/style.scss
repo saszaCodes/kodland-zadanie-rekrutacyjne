@@ -1,0 +1,453 @@
+$menu-height: 80px;
+$section-padding-vertical-xs: 10px;
+$section-padding-vertical-s: 20px;
+$section-padding-vertical: 50px;
+$bg-lightblue: #cbf3f0;
+$bg-darkgrey: #333333;
+$bg-orange: #ffbf69;
+$breakpoint-big-phone: 350px;
+$breakpoint-small-tablet: 551px;
+$breakpoint-tablet: 767px;
+$breakpoint-screen: 1025px;
+$breakpoint-large-screen: 1401px;
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  background-color: white;
+  margin: 0;
+  overflow-x: hidden;
+  
+  
+  >* {
+    padding: $section-padding-vertical-xs 15px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media (min-width: $breakpoint-big-phone) {
+      padding: $section-padding-vertical-s 30px;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: $section-padding-vertical 40px;
+    }
+
+    @media (min-width: $breakpoint-screen) {
+      padding: $section-padding-vertical 90px;
+    }
+
+    @media (min-width: $breakpoint-large-screen) {
+      padding: $section-padding-vertical 200px;
+    }
+  }
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+    filter: brightness(95%)
+  }
+
+  &:active {
+    filter: brightness(90%)
+  }
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+
+  &:not(button a) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.menu {
+  font-weight: 600;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $menu-height;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100%;
+  
+
+  &__logo {
+    min-width: 140px;
+  }
+
+
+  &__toggle {
+    position: relative;
+      @media (min-width: $breakpoint-tablet) {
+        height: 100%;
+        width: 100%;
+      }
+
+    &__button {
+      width: 20px;
+
+      @media (min-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-items {
+    &--open, &--closed {
+      position: absolute;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: $breakpoint-tablet) {
+        margin: 0;
+        font-weight: 600;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: $menu-height;
+        gap: 20px;
+
+        background-color: transparent;
+
+        &:hover, &:active {
+          background-color: transparent
+        }
+      }
+
+      li {
+        list-style-type: none;
+        text-align: center;
+        padding: 10px 20px;
+        background-color: white;
+        @media (min-width: $breakpoint-tablet) {
+          background: transparent;
+        }
+
+        &:hover, &:active {
+          background-color: $bg-orange;
+          @media (min-width: $breakpoint-tablet) {
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    &--closed {
+      @media (max-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+  }  
+}
+
+.cover {
+  margin: auto;
+  padding-top: 60px;
+  background-image: url('../media/images/background.png');
+  background-size: contain;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  @media (min-width: $breakpoint-big-phone) {
+    height: 250px;
+  }
+
+  @media (min-width: $breakpoint-small-tablet) {
+    height: 380px;
+    padding-top: $menu-height;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    height: unset;
+    max-height: 900px;
+    aspect-ratio: 1.6;
+  }
+
+  @media (min-width: $breakpoint-large-screen) {
+    max-width: $breakpoint-large-screen;
+    padding: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50vw;
+      width: 200vw;
+      height: 200%;
+      z-index: -1;
+      background-color: $bg-orange;
+    }
+  }
+
+  
+
+  &__content {
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-small-tablet) {
+      margin-right: 50%;
+    }
+
+    &__heading {
+      font-size: 25px;
+      font-weight: 900;
+      margin: 0;
+      
+      @media (min-width: $breakpoint-big-phone) {
+        font-size: 40px;
+      }
+
+      @media (min-width: $breakpoint-small-tablet) {
+        font-size: 60px;
+      }
+
+      @media (min-width: $breakpoint-tablet) {
+        font-size: 90px;
+      }
+    }
+
+    &__paragraph {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 18px;
+      margin: 0 0 20px 0;
+
+      @media (min-width: $breakpoint-tablet) {
+        margin: 0 0 40px 0;
+      }
+    }
+
+    &__button {
+      font-size: 14px;
+      font-weight: 400;
+      background-color: $bg-lightblue;
+      border: 0;
+      padding: 6px 20px;
+
+      @media (min-width: $breakpoint-small-tablet) {
+        padding: 12px 45px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.lead {
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @media (min-width: $breakpoint-screen) {
+    padding-left: 140px;
+    padding-right: 140px;
+  }
+
+  @media (min-width: $breakpoint-large-screen) {
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+
+  &__paragraph {
+    text-align: center;
+    line-height: 22px;
+    font-weight: lighter;
+  }
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $bg-lightblue;
+
+  &__heading {
+    margin-bottom: 25px;
+
+    @media (min-width: $breakpoint-screen) {
+      margin-bottom: 45px
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  left: 0;
+  transition: left 0.7s ease-out;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: nowrap;
+
+  &__wrapper {
+  position: relative;
+  width: 100%;
+    overflow: hidden;
+  }
+
+  &__slide {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    
+    @media (min-width: $breakpoint-tablet) {
+      width: 50%;
+    }
+
+    @media (min-width: $breakpoint-large-screen) {
+      width: 33%;
+    }
+
+    >img {
+      width: 150px;
+
+      @media (min-width: $breakpoint-big-phone) {
+        width: 200px;
+      }
+
+      @media (min-width: $breakpoint-screen) {
+        width: 300px;
+      }
+    }
+    
+  }
+
+  &__button {
+    background-color: $bg-orange;
+    border: 0;
+    padding: 10px 20px;
+  }
+
+  &__navigation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  &__nav-button {
+   &--next, &--prev {
+    position: absolute;
+    bottom: 50%;
+    border: none;
+    background-color: transparent;
+
+    > img {
+      width: 30px;
+      opacity: 0.5;
+    }
+
+    >img:hover {
+      opacity: 0.8;
+    }
+   }
+
+   &--next {
+     right: 0;
+   }
+
+   &--prev {
+    left: 0;
+  }
+  }
+
+  &__nav-dots {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    height: fit-content;
+    
+
+    &__dot {
+      border: 0;
+      padding: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: rgba(0,0,0,0.3);
+
+      &--active {
+        background-color: rgba(0,0,0,0.65);
+      }
+    }
+  }
+}
+
+.more-info {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../media/images/bg-grid.png');
+  background-size: cover;
+
+  @media (min-width: $breakpoint-small-tablet) {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  &__content {
+    flex: 3;
+  }
+
+  &__image {
+    flex: 2;
+    width: 100%;
+  }
+}
+
+.footer {
+  background-color: $bg-darkgrey;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: white;
+  width: 100%;
+
+  &__elements {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;;
+    gap: 10px;
+
+    @media (min-width: $breakpoint-small-tablet) {
+      flex-direction: row;
+      gap: 0;
+    }
+
+    justify-content: space-between;
+    width: 100%;
+    li {
+      list-style-type: none;
+    }
+  }
+}
